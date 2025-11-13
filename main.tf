@@ -14,7 +14,7 @@ resource "aws_instance" "main" {
 
 resource "terraform_data" "main" {
   triggers_replace = [
-    aws_instance.catalogue.id
+    aws_instance.main.id
   ]
 
   connection {
