@@ -57,7 +57,7 @@ resource "aws_ami_from_instance" "main" {
 }
 
 resource "aws_lb_target_group" "main" {
-  name     = "${var.project_name}-${var.environment}"
+  name     = "${local.common_name_suffix}-${var.component}"
   port     = local.tg_port
   protocol = "HTTP"
   deregistration_delay = 60  #waiting period
