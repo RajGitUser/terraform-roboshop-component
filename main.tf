@@ -26,7 +26,7 @@ resource "terraform_data" "main" {
 
 # terraform copies this to catalogue server
   provisioner "file" {
-    source = "bootstrap.sh"
+    source = "${path.module}/bootstrap.sh"
     destination = "/tmp/bootstrap.sh"
   }
 
@@ -65,7 +65,7 @@ resource "aws_lb_target_group" "main" {
   health_check {
     healthy_threshold = 2
     interval = 10
-    matcher = 200-299
+    matcher = "200-299"
     path = local.health_check_path
     port = local.tg_port
     protocol = "HTTP"
